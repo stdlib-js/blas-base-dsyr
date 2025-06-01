@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-05-19)
+## Unreleased (2025-06-01)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`6555228`](https://github.com/stdlib-js/stdlib/commit/65552285402918e100f9562cdef24493fc43550a) - **test:** add test cases for `blas/base/dsyr` [(#7128)](https://github.com/stdlib-js/stdlib/pull/7128) _(by Shabareesh Shetty)_
 -   [`dfa9446`](https://github.com/stdlib-js/stdlib/commit/dfa944638baf665a4f16321a88ffd5091b2b14fb) - **refactor:** use base assertion utility _(by Athan Reines)_
 -   [`9b76065`](https://github.com/stdlib-js/stdlib/commit/9b76065b017415494be482c0a085afda2e526a77) - **test:** add test cases for `blas/base/dsyr` [(#6729)](https://github.com/stdlib-js/stdlib/pull/6729) _(by Shabareesh Shetty)_
 -   [`aad48ea`](https://github.com/stdlib-js/stdlib/commit/aad48eab1f19217854f4ffbfaed2a8be664b0f47) - **chore:** resolve lint errors _(by Philipp Burckhardt)_
