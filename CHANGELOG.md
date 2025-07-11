@@ -4,12 +4,13 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-06-01)
+## Unreleased (2025-07-11)
 
 <section class="features">
 
 ### Features
 
+-   [`fffbf73`](https://github.com/stdlib-js/stdlib/commit/fffbf730b1a27175ece26a82f05c4053567e4386) - add C implementation for `blas/base/dsyr`  [(#6566)](https://github.com/stdlib-js/stdlib/pull/6566)
 -   [`43439d0`](https://github.com/stdlib-js/stdlib/commit/43439d0098ad812e3276a13ecaaf41f55c501680) - add `blas/base/dsyr` [(#2659)](https://github.com/stdlib-js/stdlib/pull/2659)
 
 </section>
@@ -22,6 +23,7 @@
 
 <details>
 
+-   [`fffbf73`](https://github.com/stdlib-js/stdlib/commit/fffbf730b1a27175ece26a82f05c4053567e4386) - **feat:** add C implementation for `blas/base/dsyr`  [(#6566)](https://github.com/stdlib-js/stdlib/pull/6566) _(by Shabareesh Shetty, Athan Reines)_
 -   [`6555228`](https://github.com/stdlib-js/stdlib/commit/65552285402918e100f9562cdef24493fc43550a) - **test:** add test cases for `blas/base/dsyr` [(#7128)](https://github.com/stdlib-js/stdlib/pull/7128) _(by Shabareesh Shetty)_
 -   [`dfa9446`](https://github.com/stdlib-js/stdlib/commit/dfa944638baf665a4f16321a88ffd5091b2b14fb) - **refactor:** use base assertion utility _(by Athan Reines)_
 -   [`9b76065`](https://github.com/stdlib-js/stdlib/commit/9b76065b017415494be482c0a085afda2e526a77) - **test:** add test cases for `blas/base/dsyr` [(#6729)](https://github.com/stdlib-js/stdlib/pull/6729) _(by Shabareesh Shetty)_
