@@ -17,12 +17,23 @@
 
 <!-- /.features -->
 
+<section class="bug-fixes">
+
+### Bug Fixes
+
+-   [`c9f4cb9`](https://github.com/stdlib-js/stdlib/commit/c9f4cb9b593f963d25efc20a6bd3b2aeeda515c2) - add missing checks and tests
+
+</section>
+
+<!-- /.bug-fixes -->
+
 <section class="commits">
 
 ### Commits
 
 <details>
 
+-   [`c9f4cb9`](https://github.com/stdlib-js/stdlib/commit/c9f4cb9b593f963d25efc20a6bd3b2aeeda515c2) - **fix:** add missing checks and tests _(by Athan Reines)_
 -   [`fffbf73`](https://github.com/stdlib-js/stdlib/commit/fffbf730b1a27175ece26a82f05c4053567e4386) - **feat:** add C implementation for `blas/base/dsyr`  [(#6566)](https://github.com/stdlib-js/stdlib/pull/6566) _(by Shabareesh Shetty, Athan Reines)_
 -   [`6555228`](https://github.com/stdlib-js/stdlib/commit/65552285402918e100f9562cdef24493fc43550a) - **test:** add test cases for `blas/base/dsyr` [(#7128)](https://github.com/stdlib-js/stdlib/pull/7128) _(by Shabareesh Shetty)_
 -   [`dfa9446`](https://github.com/stdlib-js/stdlib/commit/dfa944638baf665a4f16321a88ffd5091b2b14fb) - **refactor:** use base assertion utility _(by Athan Reines)_
