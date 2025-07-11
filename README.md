@@ -35,14 +35,32 @@ limitations under the License.
 
 > Perform the symmetric rank 1 operation `A = α*x*x^T + A`.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-dsyr
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import dsyr from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-dsyr@deno/mod.js';
+var dsyr = require( '@stdlib/blas-base-dsyr' );
 ```
 
 #### dsyr( order, uplo, N, α, x, sx, A, LDA )
@@ -50,13 +68,13 @@ import dsyr from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-dsyr@deno/mod.
 Performs the symmetric rank 1 operation `A = α*x*x^T + A` where `α` is a scalar, `x` is an `N` element vector, and `A` is an `N` by `N` symmetric matrix.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
 
-var A = new Float64Array( [ 1.0, 2.0, 3.0, 0.0, 1.0, 2.0, 0.0, 0.0, 1.0 ] );
+var A = new Float64Array( [ 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 3.0, 2.0, 1.0 ] );
 var x = new Float64Array( [ 1.0, 2.0, 3.0 ] );
 
 dsyr( 'row-major', 'upper', 3, 1.0, x, 1, A, 3 );
-// A => <Float64Array>[ 2.0, 4.0, 6.0, 0.0, 5.0, 8.0, 0.0, 0.0, 10.0 ]
+// A => <Float64Array>[ 2.0, 4.0, 6.0, 2.0, 5.0, 8.0, 3.0, 2.0, 10.0 ]
 ```
 
 The function has the following parameters:
@@ -66,20 +84,20 @@ The function has the following parameters:
 -   **N**: number of elements along each dimension of `A`.
 -   **α**: scalar constant.
 -   **x**: input [`Float64Array`][mdn-float64array].
--   **sx**: index increment for `x`.
+-   **sx**: stride length for `x`.
 -   **A**: input matrix stored in linear memory as a [`Float64Array`][mdn-float64array].
 -   **lda**: stride of the first dimension of `A` (a.k.a., leading dimension of the matrix `A`).
 
-The stride parameters determine how elements in the input arrays are accessed at runtime. For example, to iterate over every other element of `x` in reverse order,
+The stride parameters determine how elements in the input arrays are accessed at runtime. For example, to iterate over the elements of `x` in reverse order,
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
 
-var A = new Float64Array( [ 1.0, 2.0, 3.0, 0.0, 1.0, 2.0, 0.0, 0.0, 1.0 ] );
-var x = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0 ] );
+var A = new Float64Array( [ 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 3.0, 2.0, 1.0 ] );
+var x = new Float64Array( [ 3.0, 2.0, 1.0 ] );
 
-dsyr( 'row-major', 'upper', 3, 1.0, x, -2, A, 3 );
-// A => <Float64Array>[ 26.0, 17.0, 8.0, 0.0, 10.0, 5.0, 0.0, 0.0, 2.0 ]
+dsyr( 'row-major', 'upper', 3, 1.0, x, -1, A, 3 );
+// A => <Float64Array>[ 2.0, 4.0, 6.0, 2.0, 5.0, 8.0, 3.0, 2.0, 10.0 ]
 ```
 
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
@@ -87,17 +105,17 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
 
 // Initial arrays...
-var x0 = new Float64Array( [ 1.0, 1.0, 1.0, 1.0 ] );
-var A = new Float64Array( [ 1.0, 2.0, 3.0, 0.0, 1.0, 2.0, 0.0, 0.0, 1.0 ] );
+var x0 = new Float64Array( [ 0.0, 3.0, 2.0, 1.0 ] );
+var A = new Float64Array( [ 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 3.0, 2.0, 1.0 ] );
 
 // Create offset views...
 var x1 = new Float64Array( x0.buffer, x0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
 
 dsyr( 'row-major', 'upper', 3, 1.0, x1, -1, A, 3 );
-// A => <Float64Array>[ 2.0, 3.0, 4.0, 0.0, 2.0, 3.0, 0.0, 0.0, 2.0 ]
+// A => <Float64Array>[ 2.0, 4.0, 6.0, 2.0, 5.0, 8.0, 3.0, 2.0, 10.0 ]
 ```
 
 #### dsyr.ndarray( uplo, N, α, x, sx, ox, A, sa1, sa2, oa )
@@ -105,13 +123,13 @@ dsyr( 'row-major', 'upper', 3, 1.0, x1, -1, A, 3 );
 Performs the symmetric rank 1 operation `A = α*x*x^T + A`, using alternative indexing semantics and where `α` is a scalar, `x` is an `N` element vector, and `A` is an `N` by `N` symmetric matrix.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
 
-var A = new Float64Array( [ 1.0, 2.0, 3.0, 0.0, 1.0, 2.0, 0.0, 0.0, 1.0 ] );
+var A = new Float64Array( [ 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 3.0, 2.0, 1.0 ] );
 var x = new Float64Array( [ 1.0, 2.0, 3.0 ] );
 
 dsyr.ndarray( 'upper', 3, 1.0, x, 1, 0, A, 3, 1, 0 );
-// A => <Float64Array>[ 2.0, 4.0, 6.0, 0.0, 5.0, 8.0, 0.0, 0.0, 10.0 ]
+// A => <Float64Array>[ 2.0, 4.0, 6.0, 2.0, 5.0, 8.0, 3.0, 2.0, 10.0 ]
 ```
 
 The function has the following additional parameters:
@@ -124,13 +142,13 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example,
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
 
-var A = new Float64Array( [ 1.0, 2.0, 3.0, 0.0, 1.0, 2.0, 0.0, 0.0, 1.0 ] );
+var A = new Float64Array( [ 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 3.0, 2.0, 1.0 ] );
 var x = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0 ] );
 
 dsyr.ndarray( 'upper', 3, 1.0, x, -2, 4, A, 3, 1, 0 );
-// A => <Float64Array>[ 26.0, 17.0, 8.0, 0.0, 10.0, 5.0, 0.0, 0.0, 2.0 ]
+// A => <Float64Array>[ 26.0, 17.0, 8.0, 2.0, 10.0, 5.0, 3.0, 2.0, 2.0 ]
 ```
 
 </section>
@@ -154,9 +172,9 @@ dsyr.ndarray( 'upper', 3, 1.0, x, -2, 4, A, 3, 1, 0 );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import ones from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-ones@deno/mod.js';
-import dsyr from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-dsyr@deno/mod.js';
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var ones = require( '@stdlib/array-ones' );
+var dsyr = require( '@stdlib/blas-base-dsyr' );
 
 var opts = {
     'dtype': 'float64'
@@ -164,11 +182,18 @@ var opts = {
 
 var N = 3;
 
-var A = ones( N*N, opts.dtype );
+// Create N-by-N symmetric matrices:
+var A1 = ones( N*N, opts.dtype );
+var A2 = ones( N*N, opts.dtype );
+
+// Create a random vector:
 var x = discreteUniform( N, -10.0, 10.0, opts );
 
-dsyr( 'row-major', 'upper', 3, 1.0, x, 1, A, 3 );
-console.log( A );
+dsyr( 'row-major', 'upper', 3, 1.0, x, 1, A1, 3 );
+console.log( A1 );
+
+dsyr.ndarray( 'upper', 3, 1.0, x, 1, 0, A2, 3, 1, 0 );
+console.log( A2 );
 ```
 
 </section>
@@ -177,7 +202,156 @@ console.log( A );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/blas/base/dsyr.h"
+```
+
+#### c_dsyr( layout, uplo, N, alpha, \*X, sx, \*A, LDA )
+
+Performs the symmetric rank 1 operation `A = α*x*x^T + A` where `α` is a scalar, `x` is an `N` element vector, and `A` is an `N` by `N` symmetric matrix.
+
+```c
+#include "stdlib/blas/base/shared.h"
+
+double A[] = { 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 3.0, 2.0, 1.0 };
+const double x[] = { 1.0, 2.0, 3.0 };
+
+c_dsyr( CblasColMajor, CblasUpper, 3, 1.0, x, 1, A, 3 );
+```
+
+The function accepts the following arguments:
+
+-   **layout**: `[in] CBLAS_LAYOUT` storage layout.
+-   **uplo**: `[in] CBLAS_UPLO` specifies whether the upper or lower triangular part of the symmetric matrix `A` should be referenced.
+-   **N**: `[in] CBLAS_INT` number of elements along each dimension of `A`.
+-   **alpha**: `[in] double` scalar constant.
+-   **X**: `[in] double*` input array.
+-   **sx**: `[in] CBLAS_INT` stride length for `X`.
+-   **A**: `[inout] double*` input matrix.
+-   **LDA**: `[in] CBLAS_INT` stride of the first dimension of `A` (a.k.a., leading dimension of the matrix `A`).
+
+```c
+void c_dsyr( const CBLAS_LAYOUT layout, const CBLAS_UPLO uplo, const CBLAS_INT N, const double alpha, const double *X, const CBLAS_INT strideX, double *A, const CBLAS_INT LDA )
+```
+
+#### c_dsyr_ndarray( uplo, N, alpha, \*X, sx, ox, \*A, sa1, sa2, oa )
+
+Performs the symmetric rank 1 operation `A = α*x*x^T + A`, using alternative indexing semantics and where `α` is a scalar, `x` is an `N` element vector, and `A` is an `N` by `N` symmetric matrix.
+
+```c
+#include "stdlib/blas/base/shared.h"
+
+double A[] = { 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 3.0, 2.0, 1.0 };
+const double x[] = { 1.0, 2.0, 3.0 };
+
+c_dsyr_ndarray( CblasUpper, 3, 1.0, x, 1, 0, A, 3, 1, 0 );
+```
+
+The function accepts the following arguments:
+
+-   **uplo**: `[in] CBLAS_UPLO` specifies whether the upper or lower triangular part of the symmetric matrix `A` should be referenced.
+-   **N**: `[in] CBLAS_INT` number of elements along each dimension of `A`.
+-   **alpha**: `[in] double` scalar constant.
+-   **X**: `[in] double*` input array.
+-   **sx**: `[in] CBLAS_INT` stride length for `X`.
+-   **ox**: `[in] CBLAS_INT` starting index for `X`.
+-   **A**: `[inout] double*` input matrix.
+-   **sa1**: `[in] CBLAS_INT` stride of the first dimension of `A`.
+-   **sa2**: `[in] CBLAS_INT` stride of the second dimension of `A`.
+-   **oa**: `[in] CBLAS_INT` starting index for `A`.
+
+```c
+void c_dsyr_ndarray( const CBLAS_UPLO uplo, const CBLAS_INT N, const double alpha, const double *X, const CBLAS_INT strideX, const CBLAS_INT offsetX, double *A, const CBLAS_INT strideA1, const CBLAS_INT strideA2, const CBLAS_INT offsetA )
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/blas/base/dsyr.h"
+#include "stdlib/blas/base/shared.h"
+#include <stdio.h>
+
+int main( void ) {
+    // Define 3x3 symmetric matrices stored in row-major layout:
+    double A1[ 3*3 ] = {
+        1.0, 2.0, 3.0,
+        2.0, 1.0, 2.0,
+        3.0, 2.0, 1.0
+    };
+
+    double A2[ 3*3 ] = {
+        1.0, 2.0, 3.0,
+        2.0, 1.0, 2.0,
+        3.0, 2.0, 1.0
+    };
+
+    // Define a vector:
+    const double x[ 3 ] = { 1.0, 2.0, 3.0 };
+
+    // Specify the number of elements along each dimension of `A1` and `A2`:
+    const int N = 3;
+
+    // Perform the symmetric rank 1 operation `A = α*x*x^T + A`:
+    c_dsyr( CblasColMajor, CblasUpper, N, 1.0, x, 1, A1, N );
+
+    // Print the result:
+    for ( int i = 0; i < N*N; i++ ) {
+        printf( "A1[ %i ] = %f\n", i, A1[ i ] );
+    }
+
+    // Perform the symmetric rank 1 operation `A = α*x*x^T + A` using alternative indexing semantics:
+    c_dsyr_ndarray( CblasUpper, N, 1.0, x, 1, 0, A2, N, 1, 0 );
+
+    // Print the result:
+    for ( int i = 0; i < N*N; i++ ) {
+        printf( "A2[ %i ] = %f\n", i, A[ i ] );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -196,7 +370,7 @@ console.log( A );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
