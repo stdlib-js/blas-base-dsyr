@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-07-11)
+## Unreleased (2025-07-12)
 
 <section class="features">
 
@@ -33,6 +33,7 @@
 
 <details>
 
+-   [`a41c427`](https://github.com/stdlib-js/stdlib/commit/a41c427ee9ddd87f48288a737ea9820ea48b5498) - **refactor:** reduce pointer arithmetic operations _(by Athan Reines)_
 -   [`c9f4cb9`](https://github.com/stdlib-js/stdlib/commit/c9f4cb9b593f963d25efc20a6bd3b2aeeda515c2) - **fix:** add missing checks and tests _(by Athan Reines)_
 -   [`fffbf73`](https://github.com/stdlib-js/stdlib/commit/fffbf730b1a27175ece26a82f05c4053567e4386) - **feat:** add C implementation for `blas/base/dsyr`  [(#6566)](https://github.com/stdlib-js/stdlib/pull/6566) _(by Shabareesh Shetty, Athan Reines)_
 -   [`6555228`](https://github.com/stdlib-js/stdlib/commit/65552285402918e100f9562cdef24493fc43550a) - **test:** add test cases for `blas/base/dsyr` [(#7128)](https://github.com/stdlib-js/stdlib/pull/7128) _(by Shabareesh Shetty)_
