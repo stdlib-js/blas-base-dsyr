@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-07-12)
+## Unreleased (2025-07-13)
 
 <section class="features">
 
@@ -33,6 +33,7 @@
 
 <details>
 
+-   [`e01e9d8`](https://github.com/stdlib-js/stdlib/commit/e01e9d8efc5ba72da1a68a6abf2d4058e6d89a02) - **docs:** use appropriate data type in string interpolation [(#7631)](https://github.com/stdlib-js/stdlib/pull/7631) _(by Shabareesh Shetty)_
 -   [`a41c427`](https://github.com/stdlib-js/stdlib/commit/a41c427ee9ddd87f48288a737ea9820ea48b5498) - **refactor:** reduce pointer arithmetic operations _(by Athan Reines)_
 -   [`c9f4cb9`](https://github.com/stdlib-js/stdlib/commit/c9f4cb9b593f963d25efc20a6bd3b2aeeda515c2) - **fix:** add missing checks and tests _(by Athan Reines)_
 -   [`fffbf73`](https://github.com/stdlib-js/stdlib/commit/fffbf730b1a27175ece26a82f05c4053567e4386) - **feat:** add C implementation for `blas/base/dsyr`  [(#6566)](https://github.com/stdlib-js/stdlib/pull/6566) _(by Shabareesh Shetty, Athan Reines)_

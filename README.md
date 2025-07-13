@@ -332,7 +332,7 @@ int main( void ) {
 
     // Print the result:
     for ( int i = 0; i < N*N; i++ ) {
-        printf( "A1[ %i ] = %f\n", i, A1[ i ] );
+        printf( "A1[ %i ] = %lf\n", i, A1[ i ] );
     }
 
     // Perform the symmetric rank 1 operation `A = α*x*x^T + A` using alternative indexing semantics:
@@ -340,7 +340,7 @@ int main( void ) {
 
     // Print the result:
     for ( int i = 0; i < N*N; i++ ) {
-        printf( "A2[ %i ] = %f\n", i, A[ i ] );
+        printf( "A2[ %i ] = %lf\n", i, A[ i ] );
     }
 }
 ```
