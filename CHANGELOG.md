@@ -33,6 +33,7 @@
 
 <details>
 
+-   [`bbcd10e`](https://github.com/stdlib-js/stdlib/commit/bbcd10e4612d8b164f5716b1a3d79aecba358548) - **docs:** fix parameter name _(by Athan Reines)_
 -   [`f892202`](https://github.com/stdlib-js/stdlib/commit/f89220228daf5c84c2a5cfdcc03633ac2cc78a7c) - **docs:** fix description _(by Athan Reines)_
 -   [`e01e9d8`](https://github.com/stdlib-js/stdlib/commit/e01e9d8efc5ba72da1a68a6abf2d4058e6d89a02) - **docs:** use appropriate data type in string interpolation [(#7631)](https://github.com/stdlib-js/stdlib/pull/7631) _(by Shabareesh Shetty)_
 -   [`a41c427`](https://github.com/stdlib-js/stdlib/commit/a41c427ee9ddd87f48288a737ea9820ea48b5498) - **refactor:** reduce pointer arithmetic operations _(by Athan Reines)_
