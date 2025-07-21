@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-07-17)
+## Unreleased (2025-07-21)
 
 <section class="features">
 
@@ -33,6 +33,7 @@
 
 <details>
 
+-   [`f911d85`](https://github.com/stdlib-js/stdlib/commit/f911d85bd1fbe895bc360b5062ab7d7890029f48) - **refactor:** update include header guards for `blas/base/dsyr` [(#7689)](https://github.com/stdlib-js/stdlib/pull/7689) _(by Shabareesh Shetty)_
 -   [`bbcd10e`](https://github.com/stdlib-js/stdlib/commit/bbcd10e4612d8b164f5716b1a3d79aecba358548) - **docs:** fix parameter name _(by Athan Reines)_
 -   [`f892202`](https://github.com/stdlib-js/stdlib/commit/f89220228daf5c84c2a5cfdcc03633ac2cc78a7c) - **docs:** fix description _(by Athan Reines)_
 -   [`e01e9d8`](https://github.com/stdlib-js/stdlib/commit/e01e9d8efc5ba72da1a68a6abf2d4058e6d89a02) - **docs:** use appropriate data type in string interpolation [(#7631)](https://github.com/stdlib-js/stdlib/pull/7631) _(by Shabareesh Shetty)_
