@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-07-21)
+## Unreleased (2025-12-19)
 
 <section class="features">
 
@@ -33,6 +33,7 @@
 
 <details>
 
+-   [`6cc55bb`](https://github.com/stdlib-js/stdlib/commit/6cc55bbc6957bdf2c26330dcd566f20db3f28bad) - **bench:** refactor to use dynamic memory allocation in `blas/base/dsyr` [(#9211)](https://github.com/stdlib-js/stdlib/pull/9211) _(by Samarth Kolarkar, Athan Reines)_
 -   [`f911d85`](https://github.com/stdlib-js/stdlib/commit/f911d85bd1fbe895bc360b5062ab7d7890029f48) - **refactor:** update include header guards for `blas/base/dsyr` [(#7689)](https://github.com/stdlib-js/stdlib/pull/7689) _(by Shabareesh Shetty)_
 -   [`bbcd10e`](https://github.com/stdlib-js/stdlib/commit/bbcd10e4612d8b164f5716b1a3d79aecba358548) - **docs:** fix parameter name _(by Athan Reines)_
 -   [`f892202`](https://github.com/stdlib-js/stdlib/commit/f89220228daf5c84c2a5cfdcc03633ac2cc78a7c) - **docs:** fix description _(by Athan Reines)_
@@ -58,11 +59,12 @@
 
 ### Contributors
 
-A total of 4 people contributed to this release. Thank you to the following contributors:
+A total of 5 people contributed to this release. Thank you to the following contributors:
 
 -   Aman Bhansali
 -   Athan Reines
 -   Philipp Burckhardt
+-   Samarth Kolarkar
 -   Shabareesh Shetty
 
 </section>
